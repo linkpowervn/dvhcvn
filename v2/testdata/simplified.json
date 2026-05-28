@@ -1,0 +1,58 @@
+[
+  {
+    "Code": "01",
+    "Name": "Hà Nội",
+    "NameEn": "Ha Noi",
+    "FullName": "Thành phố Hà Nội",
+    "FullNameEn": "Ha Noi City",
+    "CodeName": "ha_noi",
+    "Wards": [
+      {
+        "Code": "00004",
+        "Name": "Ba Đình",
+        "NameEn": "Ba Dinh",
+        "FullName": "Phường Ba Đình",
+        "FullNameEn": "Ba Dinh Ward",
+        "CodeName": "ba_dinh",
+        "ProvinceCode": "01"
+      },
+      {
+        "Code": "00008",
+        "Name": "Ngọc Hà",
+        "NameEn": "Ngoc Ha",
+        "FullName": "Phường Ngọc Hà",
+        "FullNameEn": "Ngoc Ha Ward",
+        "CodeName": "ngoc_ha",
+        "ProvinceCode": "01"
+      }
+    ]
+  },
+  {
+    "Code": "79",
+    "Name": "Hồ Chí Minh",
+    "NameEn": "Ho Chi Minh",
+    "FullName": "Thành phố Hồ Chí Minh",
+    "FullNameEn": "Ho Chi Minh City",
+    "CodeName": "ho_chi_minh",
+    "Wards": [
+      {
+        "Code": "26734",
+        "Name": "Bến Nghé",
+        "NameEn": "Ben Nghe",
+        "FullName": "Phường Bến Nghé",
+        "FullNameEn": "Ben Nghe Ward",
+        "CodeName": "ben_nghe",
+        "ProvinceCode": "79"
+      },
+      {
+        "Code": "26737",
+        "Name": "Bến Thành",
+        "NameEn": "Ben Thanh",
+        "FullName": "Phường Bến Thành",
+        "FullNameEn": "Ben Thanh Ward",
+        "CodeName": "ben_thanh",
+        "ProvinceCode": "79"
+      }
+    ]
+  }
+]

@@ -1,115 +1,38 @@
 # DVHCVN - Đơn vị hành chính Việt Nam
 
-Thư viện Go để xử lý dữ liệu đơn vị hành chính Việt Nam (tỉnh, huyện, xã) từ remote API.
+Thư viện Go để truy vấn dữ liệu đơn vị hành chính Việt Nam.
 
-Repo chứa data tại đây: [dvhcvn](https://github.com/daohoangson/dvhcvn)
+---
 
-## Cài đặt
+## v2 (khuyến nghị) — mô hình 2 cấp, cải cách 7/2025
+
+**[→ Xem README v2](v2/README.md)**
+
+```bash
+go get github.com/linkpowervn/dvhcvn/v2
+```
+
+v2 hỗ trợ cấu trúc hành chính mới: **tỉnh/thành phố → phường/xã/đặc khu** (không còn quận/huyện), dữ liệu từ [thanglequoc/vietnamese-provinces-database](https://github.com/thanglequoc/vietnamese-provinces-database). Có cache lazy, `context.Context`, functional options và validation schema.
+
+---
+
+## v1 (legacy) — mô hình 3 cấp
 
 ```bash
 go get github.com/linkpowervn/dvhcvn
 ```
 
-## Sử dụng
+v1 hỗ trợ cấu trúc cũ: **tỉnh/thành phố → quận/huyện → phường/xã**, dữ liệu từ repo [daohoangson/dvhcvn](https://github.com/daohoangson/dvhcvn). Không có cache — mỗi lần gọi đều fetch lại JSON từ remote.
 
 ```go
-package main
+import "github.com/linkpowervn/dvhcvn/v1"
 
-import (
-    "fmt"
-    "log"
-    "github.com/linkpowervn/dvhcvn/dvhcvn"
-)
+svc := dvhcvn.NewService("https://public-assets.hcm.s3storage.vn/json/dvhcvn/dvhcvn.json")
 
-func main() {
-    // Khởi tạo service với URL API
-    service := dvhcvn.NewService("https://api.example.com/dvhc")
-    
-    // Lấy danh sách tỉnh
-    provinces, err := service.GetProvinces()
-    if err != nil {
-        log.Fatal(err)
-    }
-    
-    for _, province := range provinces {
-        fmt.Printf("Tỉnh: %s (ID: %s)\n", province.Name, province.Level1ID)
-    }
-    
-    // Lấy thông tin một tỉnh cụ thể
-    province, err := service.GetProvince("56")
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Printf("Tỉnh: %s\n", province.Name)
-    
-    // Lấy danh sách huyện của tỉnh
-    districts, err := service.GetDistricts("56")
-    if err != nil {
-        log.Fatal(err)
-    }
-    
-    for _, district := range districts {
-        fmt.Printf("Huyện: %s (ID: %s)\n", district.Name, district.Level2ID)
-    }
-    
-    // Lấy thông tin một huyện cụ thể
-    district, err := service.GetDistrict("56", "568")
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Printf("Huyện: %s\n", district.Name)
-    
-    // Lấy danh sách xã/phường của huyện
-    wards, err := service.GetWards("56", "568")
-    if err != nil {
-        log.Fatal(err)
-    }
-    
-    for _, ward := range wards {
-        fmt.Printf("Xã/Phường: %s (ID: %s)\n", ward.Name, ward.Level3ID)
-    }
-    
-    // Lấy thông tin một xã/phường cụ thể
-    ward, err := service.GetWard("56", "568", "22363")
-    if err != nil {
-        log.Fatal(err)
-    }
-    fmt.Printf("Xã/Phường: %s\n", ward.Name)
-}
+provinces, _ := svc.GetProvinces()
+districts, _ := svc.GetDistricts("56")
+wards, _     := svc.GetWards("56", "568")
+ward, _      := svc.GetWard("56", "568", "22363")
 ```
 
-## Cấu trúc dữ liệu
-
-Thư viện hỗ trợ cấu trúc dữ liệu JSON như sau:
-
-```json
-{
-  "level1_id": "56",
-  "name": "Tỉnh Khánh Hòa",
-  "type": "Tỉnh",
-  "level2s": [
-    {
-      "level2_id": "568",
-      "name": "Thành phố Nha Trang",
-      "type": "Thành phố",
-      "level3s": [
-        {
-          "level3_id": "22363",
-          "name": "Phường Lộc Thọ",
-          "type": "Phường"
-        }
-      ]
-    }
-  ]
-}
-```
-
-## API Methods
-
-- `GetProvinces()` - Lấy danh sách tất cả tỉnh/thành phố
-- `GetProvince(provinceID)` - Lấy thông tin một tỉnh/thành phố cụ thể
-- `GetDistricts(provinceID)` - Lấy danh sách huyện/quận của một tỉnh
-- `GetDistrict(provinceID, districtID)` - Lấy thông tin một huyện/quận cụ thể
-- `GetWards(provinceID, districtID)` - Lấy danh sách xã/phường của một huyện
-- `GetWard(provinceID, districtID, wardID)` - Lấy thông tin một xã/phường cụ thể
-
+**v1 không còn được phát triển thêm.** Khuyến nghị migrate sang v2 — xem [hướng dẫn migrate](v2/README.md#migrate-từ-v1).

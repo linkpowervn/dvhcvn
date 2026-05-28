@@ -1,0 +1,16 @@
+[
+  {
+    "Code": "01",
+    "FullName": "Thành phố Hà Nội",
+    "Wards": [
+      {"Code": "00004", "FullName": "Phường Ba Đình", "ProvinceCode": "01"}
+    ]
+  },
+  {
+    "Code": "01",
+    "FullName": "Tỉnh Hà Nội Cũ",
+    "Wards": [
+      {"Code": "00099", "FullName": "Phường Khác", "ProvinceCode": "01"}
+    ]
+  }
+]

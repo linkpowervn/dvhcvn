@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/linkpowervn/dvhcvn/dvhcvn"
+	"github.com/linkpowervn/dvhcvn/v1"
 )
 
 func main() {

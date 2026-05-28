@@ -1,0 +1,73 @@
+[
+  {
+    "Type": "province",
+    "Code": "01",
+    "Name": "Hà Nội",
+    "NameEn": "Ha Noi",
+    "FullName": "Thành phố Hà Nội",
+    "FullNameEn": "Ha Noi City",
+    "CodeName": "ha_noi",
+    "AdministrativeUnitId": 1,
+    "AdministrativeUnitShortName": "Thành phố",
+    "AdministrativeUnitFullName": "Thành phố trực thuộc trung ương",
+    "AdministrativeUnitShortNameEn": "City",
+    "AdministrativeUnitFullNameEn": "Municipality",
+    "Wards": [
+      {
+        "Type": "ward",
+        "Code": "00004",
+        "Name": "Ba Đình",
+        "NameEn": "Ba Dinh",
+        "FullName": "Phường Ba Đình",
+        "FullNameEn": "Ba Dinh Ward",
+        "CodeName": "ba_dinh",
+        "ProvinceCode": "01",
+        "AdministrativeUnitId": 3,
+        "AdministrativeUnitShortName": "Phường",
+        "AdministrativeUnitFullName": "Phường"
+      },
+      {
+        "Type": "ward",
+        "Code": "00008",
+        "Name": "Ngọc Hà",
+        "NameEn": "Ngoc Ha",
+        "FullName": "Phường Ngọc Hà",
+        "FullNameEn": "Ngoc Ha Ward",
+        "CodeName": "ngoc_ha",
+        "ProvinceCode": "01",
+        "AdministrativeUnitId": 3,
+        "AdministrativeUnitShortName": "Phường",
+        "AdministrativeUnitFullName": "Phường"
+      }
+    ]
+  },
+  {
+    "Type": "province",
+    "Code": "79",
+    "Name": "Hồ Chí Minh",
+    "NameEn": "Ho Chi Minh",
+    "FullName": "Thành phố Hồ Chí Minh",
+    "FullNameEn": "Ho Chi Minh City",
+    "CodeName": "ho_chi_minh",
+    "AdministrativeUnitId": 1,
+    "AdministrativeUnitShortName": "Thành phố",
+    "AdministrativeUnitFullName": "Thành phố trực thuộc trung ương",
+    "AdministrativeUnitShortNameEn": "City",
+    "AdministrativeUnitFullNameEn": "Municipality",
+    "Wards": [
+      {
+        "Type": "ward",
+        "Code": "26734",
+        "Name": "Bến Nghé",
+        "NameEn": "Ben Nghe",
+        "FullName": "Phường Bến Nghé",
+        "FullNameEn": "Ben Nghe Ward",
+        "CodeName": "ben_nghe",
+        "ProvinceCode": "79",
+        "AdministrativeUnitId": 3,
+        "AdministrativeUnitShortName": "Phường",
+        "AdministrativeUnitFullName": "Phường"
+      }
+    ]
+  }
+]
